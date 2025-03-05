@@ -1,0 +1,15 @@
+%pd_lr_block
+{
+    @include pd_lr($pd_lr_block, 0, true);
+}
+
+%pd_tb_block
+{
+    @include pd_tb($pd_tb_block, 0, true);
+}
+
+%pd_block
+{
+    @extend %pd_lr_block;
+    @extend %pd_tb_block;
+}

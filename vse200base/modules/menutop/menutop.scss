@@ -1,0 +1,67 @@
+@charset "UTF-8";
+@import "../../../css/_mixin";
+@import "../../../css/_var";
+@import "../../../css/_ext";
+//------------------------------
+@import "../../base/_var";
+@import "../../base/_ext";
+
+.logo
+{
+    $company_tab: 480px !default;
+    $smart: 544px !default;
+
+    $cl_base: #3fa9f5 !default;
+    $cl-bg: white !default;
+
+    display: inline-block;
+
+    &__link
+    {
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        color: currentColor;
+        @extend %text-overflow;
+
+        @include mq-w($company_tab)
+        {
+            font-size: 1.3rem;
+        }
+
+        > *
+        {
+            @extend %transit;
+
+            *:hover > &
+            {
+                @include transform(
+                    scale(.9)
+                );
+            }
+        }
+
+        &_vse
+        {
+            display: inline-block;
+
+            @include mq-w($company_tab)
+            {
+                color: $cl_base;
+            }
+        }
+
+        small
+        {
+            @extend %hidden;
+            display: inline-block;
+            text-transform: none;
+
+            @include mq-w($smart)
+            {
+                @include visible();
+            }
+        }
+    }
+}
+
+

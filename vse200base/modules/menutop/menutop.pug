@@ -1,0 +1,22 @@
+//- < base.html
+    > menutop.tpl
+
+include ../../../pug/_if
+include ../../../pug/_foreach
+| {insert "file:vse200base/modules/menutop/menutop.tpl"}
+.block-bl
+    .block.wrapper.pd_block
+
+        div.logo
+            a(href='/').logo__link #[span.logo__link_vse vse]200#[small .com]
+
+.block-bl
+    .block.wrapper.pd_block
+
+        ul.navlist-sub
+            li.active: span.navlist-sub__txt Портфолио
+            li: a(href="").navlist-sub__txt База знаний
+            li: a(href="").navlist-sub__txt Элементы
+            li: span.navlist-sub__txt Portfolio
+            li: a(href="").navlist-sub__txt Knowledge base Navigation submenu num
+            li: a(href="").navlist-sub__txt Elements

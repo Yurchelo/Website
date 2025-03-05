@@ -1,0 +1,45 @@
+//- > inc_var.tpl
+    > base.tpl
+    > inc_head.html
+| {insert 'file:html/inc_var.tpl'}
+| {insert "file:vse200base/base/base.tpl"}
+| {block 'var'}{/block}
+doctype html
+| <html lang="{$opt.cultureKey}" class="no-js">
+head
+    | {insert 'file:html/inc_head.html'}
+    | {block 'head'}{/block}
+    | {'css_base' | placeholder}
+    | {'css_item' | placeholder}
+    script.
+        document.documentElement.className += " js";
+        document.documentElement.classList.remove('no-js');
+
+| {block 'body'}
+body
+    | {/block}
+
+    .containerv
+        | {block 'header'}
+        header
+            .block-bl
+                .block.wrapper.pd_block
+                    ul.breadcrumb
+                        li: a(href="/").breadcrumb__link Home
+                        li: a(href="modules").breadcrumb__link Modules
+            | {/block}
+
+        main
+            | {block 'main'}{/block}
+
+        | {block 'footer'}
+        footer
+            .block-bl
+                .block.wrapper.pd_block
+                    h2 footer
+            p  {$_modx->getInfo('queries')} q {$_modx->getInfo('totalTime')} {$_modx->getInfo('source')}
+            | {/block}
+
+    | {'js_base' | placeholder}
+    | {block 'script'}|{/block}
+| </html>

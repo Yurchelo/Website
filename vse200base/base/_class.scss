@@ -1,0 +1,93 @@
+:root {
+    --pd_lr_block_rem: 0.4rem;
+    --pd_lr_block_vw: 1.4vw;
+    --pd_tb_block_rem: 0.4rem;
+    --pd_tb_block_vw: 1vw;
+}
+@include mq-w($full) {
+    :root {
+        --pd_lr_block_rem: 1.6rem;
+        --pd_lr_block_vw: 0vw;
+        --pd_tb_block_rem: 1.2rem;
+        --pd_tb_block_vw: 0vw;
+    }
+}
+
+p
+{
+    &.bukvizca {
+        &:first-letter {
+            float: left;
+            font-size: 4.6em;
+            font-weight: normal;
+            line-height: .7;
+            padding: 0.1em 0.3em 0.1em 0;
+            color: $cl_grey;
+        }
+    }
+}
+
+.maxhide,
+.inhide,
+.gamburg
+{
+    display: none;
+    -webkit-appearance: none;
+}
+[disabled]:not([disabled="false"]),
+[disabled]:not([disabled="false"]) + label,
+.disabled,
+.disabled_vue
+{
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+.ellipsis
+{
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
+    text-overflow: ellipsis;
+}
+.wrapper {
+    max-width: $w_max;
+    @extend %mr_auto;
+}
+.wrapperin {
+    max-width: 1600px;
+    @extend %mr_auto;
+}
+//************_Element_*************//
+//************_Blocks_*************//
+.pd_lr_block
+{
+    @extend %pd_lr_block;
+}
+
+.pd_tb_block
+{
+    @extend %pd_tb_block;
+}
+
+.pd_block
+{
+    @extend .pd_lr_block;
+    @extend .pd_tb_block;
+}
+
+.wrapper-blocklr
+{
+    @extend .wrapper;
+    @extend .pd_lr_block;
+}
+
+.block
+{
+    &-bl
+    {
+        background-color: $cl-fon-gr;
+    }
+}
+//************_Inline_*************//
+//************_Form_*************//

@@ -1,0 +1,20 @@
+$w_max: 68rem; //1200px;
+$w_min: 180px;
+
+$dir-i-form:  '777assets/images/ico/form/';
+
+// color
+$cl-fon: #F8FCFF;
+$cl-fon-gr: #EEEEEE;
+$cl-attention: red;
+$cl_error: $cl-attention;
+
+$cl_conpany: #00c3ff;
+$cl_btn: #0160e7;
+$cl_base: $cl_conpany;
+$cl_hover: $cl_conpany;
+
+$pd_tb_block: var(--pd_tb_block_rem) + ' + ' + var(--pd_tb_block_vw) !global;
+$pd_lr_block: var(--pd_lr_block_rem) + ' + ' + var(--pd_lr_block_vw) !global;
+
+//$font_nav: "Nunito Sans",Verdana,Geneva,sans-serif;
