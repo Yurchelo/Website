@@ -1,15 +1,28 @@
+//************_Blocks_*************//
 %pd_lr_block
 {
     @include pd_lr($pd_lr_block, 0, true);
 }
-
 %pd_tb_block
 {
     @include pd_tb($pd_tb_block, 0, true);
 }
-
 %pd_block
 {
     @extend %pd_lr_block;
     @extend %pd_tb_block;
 }
+//************_Inline_*************//
+%txt_nav
+{
+    $font_nav: sans-serif !default;
+    $cl_font_nav: $cl_light !default;
+
+    font-family: $font_nav;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: $cl_font_nav;
+}
+
+
+//************_Form_*************//

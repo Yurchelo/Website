@@ -64,4 +64,184 @@
     }
 }
 
+.navlist
+{
+    $mq_menu: 480px !default;
+    $cl_hover: black !default;
+    $cl_back: white !default;
+    $font_nav: sans-serif !default;
+    $pd_tb: 0.8rem;
+    $font-ico: 'Flaticon' !default;
+
+    position: relative;
+
+    background-color: $cl_back;
+    text-align: left;
+
+    &-lt
+    {
+        @include mq-w($mq_menu)
+        {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    &__txt
+    {
+        display: block;
+        padding: $pd_tb 1.4rem;
+        @extend %txt_nav;
+        @extend %text-overflow;
+
+        &:not(span):hover,
+        *.active > &
+        {
+            color: $cl_hover;
+        }
+    }
+
+    &__folder
+    {
+        cursor: pointer;
+
+        > span
+        {
+            &:after
+            {
+                font-family: $font-ico;
+                content: '\f10d';
+
+                display: inline-block;
+                margin-left: 0.6em;
+
+                font-size: 0.6em;
+                color: lighten(black, 60%);
+            }
+        }
+    }
+
+    > *
+    {
+        position: relative;
+        background-color: $cl_back;
+    }
+
+    &__sub.navlist-sub
+    {
+        @include mq-w($mq_menu, max)
+        {
+            width: auto;
+            padding: 0 1rem 0 2.4rem;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        @extend %transit;
+
+        &:not(.opened-js)
+        {
+            display: none;
+        }
+
+        *.visible-js > &
+        {
+            @extend %visible;
+        }
+
+        @extend %hidden;
+
+        @include mq-w($mq_menu)
+        {
+            position: absolute;
+            left: -0.7rem;
+            top: calc(100% + 1.4rem);
+            z-index: 999;
+            max-width: none;
+
+            &:not(.opened-js)
+            {
+                display: block;
+            }
+
+            *.visible-js > &
+            {
+                top: calc(100% + 0.4rem);
+            }
+
+            @include hover
+            {
+                *:hover > &
+                {
+                    top: calc(100% + 0.4rem);
+                    @include visible();
+                }
+            }
+        }
+    }
+
+    &-sub
+    {
+        $cl_back: white !default;
+        $font_nav: sans-serif !default;
+
+        width: 16rem;
+        max-width: 100%;
+        padding: 0.8rem;
+
+        background-color: $cl_back;
+        border-radius: 15px;
+        box-shadow: 8px 8px 30px 0 rgba(42, 67, 113, 0.15);
+
+        > *
+        {
+            position: relative;
+            background-color: $cl_back;
+        }
+
+        &__txt
+        {
+            display: block;
+            padding: 0.6rem 1rem;
+            position: relative;
+            left: 0;
+
+            line-height: 1.4;
+            @extend %txt_nav;
+
+            @extend %transit;
+
+            &:before
+            {
+                content: '';
+                position: absolute;
+                @include width-height(0.32em);
+                left: 0.2rem;
+                top: calc(0.6rem + 0.5em);
+
+                border-radius: 50%;
+                background-color: $cl_hover;
+
+                @extend %hidden;
+                @extend %transit;
+            }
+
+            &:not(span):hover,
+            *.active > &
+            {
+                color: $cl_hover;
+                left: 1rem;
+
+                &:before
+                {
+                    @extend %visible;
+                }
+            }
+        }
+
+
+    }
+}
+
 

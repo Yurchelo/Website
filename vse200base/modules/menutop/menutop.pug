@@ -13,6 +13,38 @@ include ../../../pug/_foreach
 .block-bl
     .block.wrapper.pd_block
 
+        ul.navlist.navlist-lt
+            li: a(href="").navlist__txt База знаний
+            li.active.navlist__folder
+                span.navlist__txt Портфолио
+
+                //- navlist-sub
+                ul.navlist-sub.navlist__sub
+                    li.active: span.navlist-sub__txt Портфолио
+                    li: a(href="").navlist-sub__txt База знаний
+                    li: a(href="").navlist-sub__txt Элементы
+                    li: span.navlist-sub__txt Portfolio
+                    li: a(href="").navlist-sub__txt Knowledge base Navigation submenu num
+                    li: a(href="").navlist-sub__txt Elements
+
+            li: a(href="").navlist__txt Элементы
+            li.active: span.navlist__txt Portfolio
+            li: a(href="").navlist__txt Knowledge base
+
+.block-bl
+    .block.wrapper.pd_block
+
+        ul.navlist.navlist-lt
+            li: a(href="").navlist__txt База знаний
+            li.active.navlist__folder
+                span.navlist__txt Портфолио
+            li: a(href="").navlist__txt Элементы
+            li.active: span.navlist__txt Portfolio
+            li: a(href="").navlist__txt Knowledge base
+
+.block-bl
+    .block.wrapper.pd_block
+
         ul.navlist-sub
             li.active: span.navlist-sub__txt Портфолио
             li: a(href="").navlist-sub__txt База знаний
