@@ -20,6 +20,5 @@
     'registerJs'    => 'placeholder',
     'jsPlaceholder' => 'js_base',
     'jsSources'     =>
-        $jsfunc ~ 'getEventListeners.js,' ~
         $template ~ 'base.js'
 ]}

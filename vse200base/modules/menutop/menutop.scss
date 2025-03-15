@@ -6,6 +6,10 @@
 @import "../../base/_var";
 @import "../../base/_ext";
 
+$mq_menu: $tab;
+$cl_back: white;
+$cl_hover: $cl_conpany;
+
 .logo
 {
     $company_tab: 480px !default;
@@ -98,32 +102,32 @@
         }
     }
 
-    &__folder
-    {
-        cursor: pointer;
-
-        > span
-        {
-            &:after
-            {
-                font-family: $font-ico;
-                content: '\f10d';
-
-                display: inline-block;
-                margin-left: 0.6em;
-
-                font-size: 0.6em;
-                color: lighten(black, 60%);
-            }
-        }
-    }
-
     > *
     {
         position: relative;
         background-color: $cl_back;
 
-        > *:not([class])
+        &:has(.navlist__sub)
+        {
+            cursor: pointer;
+
+            > span
+            {
+                &:after
+                {
+                    font-family: $font-ico;
+                    content: '\f10d';
+
+                    display: inline-block;
+                    margin-left: 0.6em;
+
+                    font-size: 0.6em;
+                    color: lighten(black, 60%);
+                }
+            }
+        }
+
+        > *:not(.navlist__sub)
         {
             display: block;
             padding: $pd_tb 1.4rem;
@@ -144,12 +148,15 @@
 
     &__sub
     {
-        @include mq-w($mq_menu, max)
+        > [class]
         {
-            width: auto;
-            padding: 0 1rem 0 2.4rem;
-            border-radius: 0;
-            box-shadow: none;
+            @include mq-w($mq_menu, max)
+            {
+                width: auto;
+                padding: 0 1rem 0 2.4rem;
+                border-radius: 0;
+                box-shadow: none;
+            }
         }
 
         @extend %transit;
@@ -194,8 +201,6 @@
             }
         }
     }
-
-
 
     &-sub
     {
@@ -252,6 +257,99 @@
             {
                 @extend %sub_activehover;
             }
+        }
+    }
+}
+
+.gamburger
+{
+    @include gamburger(
+            $w: 26px,
+            $h: 18px,
+            $h_item: 3px,
+            $cl: currentColor
+    );
+}
+
+%company_box_animate
+{
+    top: 100%;
+    height: auto;
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    opacity: 0;
+    @include transform-origin(center top);
+    @include transform(
+        scaleY(0)
+    );
+    -webkit-transition: -webkit-transform .5s ease 0s, opacity .3s ease .0s;
+    @include transition(
+        transform .5s ease 0s,
+        opacity .3s ease .0s
+    );
+
+    .close-js ~ &
+    {
+        opacity: 1;
+        @include transform(
+            scaleY(1)
+        );
+    }
+}
+
+.menutop
+{
+    $cl_back: $cl_back;
+
+    position: relative;
+    z-index: 99;
+    @include pd_tb($pd_tb_block, 0, true);
+    background-color: $cl_back;
+
+    @include mq-w($mq_menu)
+    {
+        @include pd_tb(0);
+    }
+
+    @include mq-w($w_max)
+    {
+        background-color: transparent;
+    }
+
+    &__gamburger
+    {
+        @include mq-w($mq_menu)
+        {
+            display: none;
+        }
+
+        > [class]
+        {
+            margin-left: auto;
+        }
+
+    }
+
+    &__nav
+    {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        padding-bottom: 1rem;
+        background-color: $cl_back;
+        @extend %company_box_animate;
+
+        @include mq-w($mq_menu)
+        {
+            position: static;
+            overflow: visible;
+            padding-bottom: 0;
+
+            opacity: 1;
+            @include transform(
+                scaleY(1)
+            );
         }
     }
 }

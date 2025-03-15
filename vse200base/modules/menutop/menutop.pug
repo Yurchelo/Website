@@ -11,28 +11,30 @@ include ../../../pug/_foreach
             a(href='/').logo__link #[span.logo__link_vse vse]200#[small .com]
 
 .block-bl
+    div.menutop.wrapper-blocklr
+
+        .menutop__gamburger
+            div.gamburger.gamburger_js
+
+        nav.menutop__nav
+
+            include _navlist
+
+.block-bl
     .block.wrapper.pd_block
 
-        ul.navlist.navlist-lt
-            li: a(href="") База знаний
-            li.active.navlist__folder
-                span Портфолио
+        div.gamburger.gamburger_js
 
-                //- navlist-sub
-                .navlist__sub
-                    include _navlist-sub
-
-            li: a(href="") Элементы
-            li.active: span Portfolio
-            li: a(href="") Knowledge base
+.block-bl
+    .block.wrapper.pd_block
+        include _navlist
 
 .block-bl
     .block.wrapper.pd_block
 
         ul.navlist.navlist-lt
             li: a(href="") База знаний
-            li.active.navlist__folder
-                span Портфолио
+            li.active: span Портфолио
             li: a(href="") Элементы
             li.active: span Portfolio
             li: a(href="") Knowledge base
