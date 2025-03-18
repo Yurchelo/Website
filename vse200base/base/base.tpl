@@ -15,10 +15,16 @@
     'cssPlaceholder' => 'css_base',
     'hooks'          => 'csshook',
     'cssSources'     =>
-        $template ~ 'base.css',
+        $template ~ 'base.css,' ~
+        $theme_modules ~ 'menutop/menutop.css',
     'minifyJs'      => 1,
     'registerJs'    => 'placeholder',
     'jsPlaceholder' => 'js_base',
     'jsSources'     =>
+        $jsfunc ~ 'attachEvents.js,' ~
+        $jsfunc ~ 'removeClass.js,' ~
+        $jsfunc ~ 'toggleSlide.js,' ~
+        $jsfunc ~ 'debounce.js,' ~
+        $theme_modules ~ 'menutop/menutop.js,' ~
         $template ~ 'base.js'
 ]}

@@ -22,11 +22,8 @@ body
     .containerv
         | {block 'header'}
         header
-            .block-bl
-                .block.wrapper.pd_block
-                    ul.breadcrumb
-                        li: a(href="/").breadcrumb__link Home
-                        li: a(href="modules").breadcrumb__link Modules
+            | {insert "file:vse200base/modules/menutop/menutop_x.html"}
+
             | {/block}
 
         main

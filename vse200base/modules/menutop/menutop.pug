@@ -1,34 +1,30 @@
 //- < base.html
-    > menutop.tpl
+    > _logo
+    > _contactbtn
+    > _menutop
 
 include ../../../pug/_if
 include ../../../pug/_foreach
-| {insert "file:vse200base/modules/menutop/menutop.tpl"}
+
+//- Logo
 .block-bl
     .block.wrapper.pd_block
 
-        div.logo
-            a(href='/').logo__link #[span.logo__link_vse vse]200#[small .com]
+        include _logo
 
+//- Contact button
 .block-bl
-    div.menutop.wrapper-blocklr
+    .block.wrapper.pd_block
 
-        .menutop__gamburger
-            div.gamburger.gamburger_js
+        include _contactbtn
 
-        nav.menutop__nav
-
-            include _navlist
-
+//- Button Gamburger
 .block-bl
     .block.wrapper.pd_block
 
         div.gamburger.gamburger_js
 
-.block-bl
-    .block.wrapper.pd_block
-        include _navlist
-
+//- Navigation
 .block-bl
     .block.wrapper.pd_block
 
@@ -39,7 +35,71 @@ include ../../../pug/_foreach
             li.active: span Portfolio
             li: a(href="") Knowledge base
 
+//- Navigation Sub
 .block-bl
     .block.wrapper.pd_block
 
         include _navlist-sub
+
+//- Navigation + Navigation Sub
+.block-bl
+    .block.wrapper.pd_block
+        include _navlist
+
+//- Menu = Button Gamburger + Navigation + Navigation Sub
+.block-bl.pd_tb_block
+    .menutop__wrap.wrapper.pd_block
+
+        include _menutop
+
+//- Company = Menu + Contact button
+.block-bl.pd_tb_block
+    .company__wrap.wrapper.pd_block
+        .company--revers
+            div.company
+                .company-lt
+
+                    div
+                        .company__contactbtn
+                            include _contactbtn
+
+                    div
+                        include _menutop
+
+//- Company = Logo + Menu
+.block-bl.pd_tb_block
+    .company__wrap.wrapper.pd_block
+        div.company
+            .company-lt
+
+                div
+                    .company__logo
+                        include _logo
+
+                div
+                    include _menutop
+
+//- Company = Logo + Menu + Contact button
+.block-bl.pd_tb_block
+    .company__wrap.wrapper.pd_block
+        div.company
+            .company-lt
+
+                div
+                    .company__logo
+                        include _logo
+
+                div
+                    .company__menu-lt
+
+                        div
+                            .company__contactbtn
+                                include _contactbtn
+
+                        div
+                            include _menutop
+
+
+
+
+

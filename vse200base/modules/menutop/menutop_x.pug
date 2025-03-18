@@ -1,0 +1,33 @@
+//- < base.html
+    > _logo
+    > _contactbtn
+
+.company-bl
+    .company__wrap.wrapper
+        div.company
+            .company-lt
+
+                div
+                    .company__logo
+                        include _logo
+
+                div
+                    .company__menu-lt
+
+                        div
+                            .company__contactbtn
+                                include _contactbtn
+
+                        div
+                            //- > _menutop
+                            div.menutop
+
+                                .menutop__gamburger
+                                    div.gamburger.gamburger_js
+
+                                nav.menutop__nav
+
+                                    //- > _navlist
+                                    ul.navlist.navlist-lt
+                                        li: a(href="/") Home
+                                        li: a(href="modules") Modules

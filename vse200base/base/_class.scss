@@ -3,6 +3,9 @@
     --pd_lr_block_vw: 1.4vw;
     --pd_tb_block_rem: 0.4rem;
     --pd_tb_block_vw: 1vw;
+    --cl_bg_global: hsl(0, 0%, 100%);
+    --cl_global: hsl(0, 0%, 20%);
+    --cl_base_global: hsl(205, 100%, 60%);
 }
 @include mq-w($full) {
     :root {

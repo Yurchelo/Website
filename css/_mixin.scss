@@ -448,10 +448,14 @@ $h_item: 2px
 @mixin hidden() {
     opacity: 0;
     visibility: hidden;
+    //height: 0;
+    //overflow: hidden;
 }
 @mixin visible() {
     opacity: 1;
     visibility: visible;
+    //height: auto;
+    //overflow: visible;
 }
 
 // Сокращение текста
