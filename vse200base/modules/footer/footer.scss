@@ -1,0 +1,60 @@
+@charset "UTF-8";
+@import "../../../css/_mixin";
+@import "../../../css/_var";
+@import "../../../css/_ext";
+//------------------------------
+@import "../../base/_var";
+@import "../../base/_ext";
+
+$cl_footer: white !default;
+$cl_base: #00c3ff !default;
+$linear-gradient: linear-gradient(280deg, rgb(4, 182, 241) 0%, rgb(0, 44, 174) 62%) !default;
+
+.footer
+{
+    $cl_footer: white !default;
+    $cl_base: #00c3ff !default;
+
+    &-wrap
+    {
+        background-image: $linear-gradient;
+    }
+
+    @include pd_tb('1.6rem + 1vw', 0, true);
+    width: fit-content;
+    color: $cl_footer;
+
+    &-lt
+    {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.6rem;
+    }
+
+    &__logo
+    {
+        .logo__link_vse
+        {
+            color: $cl_base;
+        }
+    }
+
+    &__content
+    {
+        max-width: 36rem;
+    }
+
+    &-info
+    {
+        &-bl
+        {
+            border-top: 1px solid rgba(255,255,255,.1);
+        }
+
+        font-size: 0.8rem;
+        text-align: center;
+        color: $cl_base;
+    }
+}
+
+

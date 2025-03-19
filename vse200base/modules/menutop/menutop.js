@@ -2,18 +2,22 @@
 ** < modules.tpl
  */
 
-//- gamburger
-attachEvents('.gamburger_js', "click", function(event)
+function gamburger()
 {
-    event.preventDefault();
-
-    if (!this.parentElement.classList.contains("close-js"))
+    //- gamburger
+    attachEvents('.gamburger_js', "click", function(event)
     {
-        removeClass('close-js');
-    }
+        event.preventDefault();
 
-    this.parentElement.classList.toggle("close-js");
-});
+        if (!this.parentElement.classList.contains("close-js"))
+        {
+            removeClass('close-js');
+        }
+
+        this.parentElement.classList.toggle("close-js");
+    });
+}
+gamburger();
 
 //- submenu фиксатор после клика
 function navlistFolderFix()

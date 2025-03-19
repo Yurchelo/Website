@@ -1,4 +1,4 @@
-//- < base.html
+//- < modules.html
     > _logo
     > _contactbtn
     > _menutop
@@ -48,13 +48,13 @@ include ../../../pug/_foreach
 
 //- Menu = Button Gamburger + Navigation + Navigation Sub
 .block-bl.pd_tb_block
-    .menutop__wrap.wrapper.pd_block
+    .menutop__wrap.wrapper
 
         include _menutop
 
 //- Company = Menu + Contact button
 .block-bl.pd_tb_block
-    .company__wrap.wrapper.pd_block
+    .company__wrap.wrapper
         .company--revers
             div.company
                 .company-lt
@@ -68,7 +68,7 @@ include ../../../pug/_foreach
 
 //- Company = Logo + Menu
 .block-bl.pd_tb_block
-    .company__wrap.wrapper.pd_block
+    .company__wrap.wrapper
         div.company
             .company-lt
 
@@ -81,23 +81,23 @@ include ../../../pug/_foreach
 
 //- Company = Logo + Menu + Contact button
 .block-bl.pd_tb_block
-    .company__wrap.wrapper.pd_block
-        div.company
-            .company-lt
+    .company.wrapper
+        //-div.company
+        .company-lt
 
-                div
-                    .company__logo
-                        include _logo
+            div
+                .company__logo
+                    include _logo
 
-                div
-                    .company__menu-lt
+            div
+                .company__menu-lt
 
-                        div
-                            .company__contactbtn
-                                include _contactbtn
+                    div
+                        .company__contactbtn
+                            include _contactbtn
 
-                        div
-                            include _menutop
+                    div
+                        include _menutop
 
 
 

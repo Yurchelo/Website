@@ -7,6 +7,7 @@
 @import "../../base/_ext";
 
 $mq_menu: $tab !default;
+$cl: hsl(0, 0%, 20%) !default;
 $cl_bg: white !default;
 $cl_hover: #00c3ff !default;
 $cl_base: #3fa9f5 !default;
@@ -14,6 +15,13 @@ $smart: 544px !default;
 $pd_tb: 0.7rem;
 $font_nav: sans-serif !default;
 $font-ico: 'Flaticon' !default;
+
+body
+{
+    --cl_block: var(--cl_global, hsl(0, 0%, 20%));
+    --cl_bg_block: var(--cl_bg_global, white);
+    --cl_base_block: var(--cl_base_global, hsl(205, 100%, 60%));
+}
 
 .logo
 {
@@ -309,6 +317,7 @@ $font-ico: 'Flaticon' !default;
     @include mq-w($mq_menu, max)
     {
         @include pd_tb(0);
+        @include pd_lr($pd_lr_block, 0, true);
     }
 }
 
@@ -366,6 +375,9 @@ $font-ico: 'Flaticon' !default;
     }
 }
 
+/*
+* company-bl
+*/
 .company
 {
     $mq_menu: 480px !default;
@@ -377,29 +389,22 @@ $font-ico: 'Flaticon' !default;
 
     &-bl
     {
-        --cl_company: var(--cl_bg_global);
-        --cl_bg_company: var(--cl_base_global);
+        --cl_company: var(--cl_bg_block);
+        --cl_bg_company: var(--cl_base_block);
 
         @include mq-w($mq_menu)
         {
-            --cl_company: var(--cl_global);
-            --cl_bg_company: var(--cl_bg_global);
+            --cl_company: var(--cl_block);
+            --cl_bg_company: var(--cl_bg_block);
         }
 
         background-color: var(--cl_bg_company);
         color: var(--cl_company);
 
-        > [class]
-        {
-            @include mq-w($mq_menu, max)
-            {
-                @include pd_lr($pd_lr_block, 0, true);
-            }
-        }
-
         &.scroll_js
         {
             position: fixed;
+            z-index: 999999;
             top: 24px;
             width: 100%;
             @include hidden();
@@ -418,10 +423,7 @@ $font-ico: 'Flaticon' !default;
         }
     }
 
-    &__wrap
-    {
-        @extend %company_wrap;
-    }
+    @extend %company_wrap;
 
     &-lt
     {
@@ -511,14 +513,14 @@ $font-ico: 'Flaticon' !default;
     position: relative;
     display: inline-block;
     text-align: center;
-    font-size: .9rem;
+    font-size: .8rem;
     cursor: pointer;
     @extend %transit;
 
     @include mq-w($mq_menu)
     {
-        min-width: 6.8rem;
-        padding: .4em 1.2em;
+        min-width: 6.2rem;
+        padding: .6em 1em;
         color: $cl_base;
         border: 1px solid $cl_base;
 
@@ -532,7 +534,7 @@ $font-ico: 'Flaticon' !default;
     &__txt
     {
         display: none;
-        line-height: 1.2;
+        //line-height: 1.2;
 
         &:after
         {

@@ -3,6 +3,9 @@
     --pd_lr_block_vw: 1.4vw;
     --pd_tb_block_rem: 0.4rem;
     --pd_tb_block_vw: 1vw;
+    --font_h1_rem: 1.6rem;
+    --font_h1_vw: 2vw;
+
     --cl_bg_global: hsl(0, 0%, 100%);
     --cl_global: hsl(0, 0%, 20%);
     --cl_base_global: hsl(205, 100%, 60%);
@@ -13,6 +16,8 @@
         --pd_lr_block_vw: 0vw;
         --pd_tb_block_rem: 1.2rem;
         --pd_tb_block_vw: 0vw;
+        --font_h1_rem: 3.2rem;
+        --font_h1_vw: 0vw;
     }
 }
 
@@ -92,5 +97,52 @@ p
         background-color: $cl-fon-gr;
     }
 }
+
+.content
+{
+    font-family: $font-sans;
+    font-size: 0.9rem;
+    line-height: 1.6;
+
+    > *
+    {
+        &:not(:last-child)
+        {
+            margin-bottom: 0.8rem;
+        }
+    }
+/*
+    &--invert
+    {
+        color: ;
+    }*/
+}
 //************_Inline_*************//
+
+.head
+{
+    &_h1
+    {
+        font-family: $font-sans;
+        font-size: calc(var(--font_h1_rem) + var(--font_h1_vw));
+        font-weight: 600;
+        line-height: 1.2;
+
+        > span
+        {
+            display: block;
+        }
+    }
+
+    &_slogan_h1
+    {
+        font-family: $font-sans;
+        font-size: calc(.7rem + .12vw);
+        font-weight: 400;
+        text-transform: uppercase;
+        line-height: 1.6;
+        letter-spacing: $spacing_mini;
+    }
+}
+
 //************_Form_*************//

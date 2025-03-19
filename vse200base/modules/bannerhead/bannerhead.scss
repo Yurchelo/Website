@@ -1,0 +1,47 @@
+@charset "UTF-8";
+@import "../../../css/_mixin";
+@import "../../../css/_var";
+@import "../../../css/_ext";
+//------------------------------
+@import "../../base/_var";
+@import "../../base/_ext";
+
+$cl_header-h1: white !default;
+$cl_base: #00c3ff !default;
+$cl_slogan: #c4f1ff !default;
+$linear-gradient: linear-gradient(280deg, rgb(4, 182, 241) 0%, rgb(0, 44, 174) 62%) !default;
+
+.header-h1
+{
+    &-bl
+    {
+        background-image: $linear-gradient;
+    }
+
+    @include pd_tb('2rem + 1vw', 0, true);
+    color: $cl_header-h1;
+    text-align: center;
+    @include rhythm-margin(1.6rem);
+
+    &__h1
+    {
+        > span
+        {
+            color: $cl_base;
+        }
+    }
+
+    &__slogan
+    {
+        color: $cl_slogan;
+    }
+
+    &__img
+    {
+        width: 36rem;
+        max-width: 90%;
+        @include mr_auto();
+    }
+}
+
+

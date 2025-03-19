@@ -18,5 +18,6 @@ $pd_tb_block: var(--pd_tb_block_rem) + ' + ' + var(--pd_tb_block_vw) !global;
 $pd_lr_block: var(--pd_lr_block_rem) + ' + ' + var(--pd_lr_block_vw) !global;
 
 $mq_menu: $smart;
+$linear-gradient: linear-gradient(280deg, rgb(4, 182, 241) 0%, rgb(0, 44, 174) 62%) !global;
 
 //$font_nav: "Nunito Sans",Verdana,Geneva,sans-serif;

@@ -65,6 +65,8 @@ const baseFuncPath = '/assets/templates/js/func/';
     {
         reScroll();
         navlistFolderFix();
+        gamburger();
+
     }, 300));
 
     console.log('base.js');
