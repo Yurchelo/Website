@@ -16,11 +16,13 @@
     'hooks'          => 'csshook',
     'cssSources'     =>
         $template ~ 'base.css,' ~
-        $theme_modules ~ 'menutop/menutop.css',
+        $theme_modules ~ 'menutop/menutop.css,' ~
+        $theme_modules ~ 'footer/footer.css',
     'minifyJs'      => 1,
     'registerJs'    => 'placeholder',
     'jsPlaceholder' => 'js_base',
     'jsSources'     =>
+        $jsfunc ~ 'getEventListeners.js,' ~
         $jsfunc ~ 'attachEvents.js,' ~
         $jsfunc ~ 'removeClass.js,' ~
         $jsfunc ~ 'toggleSlide.js,' ~

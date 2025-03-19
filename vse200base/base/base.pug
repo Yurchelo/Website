@@ -31,10 +31,7 @@ body
 
         | {block 'footer'}
         footer
-            .block-bl
-                .block.wrapper.pd_block
-                    h2 footer
-            p  {$_modx->getInfo('queries')} q {$_modx->getInfo('totalTime')} {$_modx->getInfo('source')}
+            | {insert "file:vse200base/modules/footer/footer_x.html"}
             | {/block}
 
     | {'js_base' | placeholder}

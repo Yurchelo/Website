@@ -92,5 +92,26 @@ p
         background-color: $cl-fon-gr;
     }
 }
+
+.content
+{
+    font-family: $font-sans;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: inherit;
+
+    > *
+    {
+        &:not(:last-child)
+        {
+            margin-bottom: 0.8rem;
+        }
+    }
+/*
+    &--invert
+    {
+        color: ;
+    }*/
+}
 //************_Inline_*************//
 //************_Form_*************//
