@@ -127,7 +127,7 @@ body
                 &:after
                 {
                     font-family: $font-ico;
-                    content:'\f10d';
+                    content: '\f10d';
 
                     display: inline-block;
                     margin-left: 0.6em;
@@ -469,6 +469,7 @@ body
     {
         @include pd_lr($pd_lr_block, 0, true);
         @include pd_tb($pd_tb);
+        //background-color: white;
 
         @include mq-w($mq_menu, max)
         {

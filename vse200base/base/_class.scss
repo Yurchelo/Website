@@ -143,6 +143,19 @@ p
         line-height: 1.6;
         letter-spacing: $spacing_mini;
     }
+
+    &_box
+    {
+        font-family: $font_redhat;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+}
+
+.txt_box
+{
+    font-family: $font_redhat;
+    line-height: 1.4;
 }
 
 //************_Form_*************//

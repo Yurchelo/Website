@@ -16,8 +16,8 @@
     'hooks'          => 'csshook',
     'cssSources'     =>
         $template ~ 'base.css,' ~
-        $theme_modules ~ 'menutop/menutop.css,' ~
-        $theme_modules ~ 'footer/footer.css',
+        $theme_modules ~ 'footer/footer.css,' ~
+        $theme_modules ~ 'menutop/menutop.css',
     'minifyJs'      => 1,
     'registerJs'    => 'placeholder',
     'jsPlaceholder' => 'js_base',
