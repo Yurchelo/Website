@@ -10,11 +10,13 @@ include ../../pug/_foreach
 | {/block}
 
 | {block 'main'}
+| {insert "file:vse200base/modules/menutop/menumodulesx.html"}
+//-.block-bl
+    .block.wrapper.pd_block
+        | {$module}
 
-| {insert "file:vse200base/modules/sitesections/sitesections.html"}
-| {insert "file:vse200base/modules/menutop/menutop.html"}
-| {insert "file:vse200base/modules/footer/footer.html"}
-| {insert "file:vse200base/modules/bannerhead/bannerhead.html"}
++if("$module")
+    | {include "file:{$modules_path ~ $module}/{$module}.html"}
 
 | {/block}
 

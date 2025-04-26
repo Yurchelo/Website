@@ -1,0 +1,52 @@
+.btn_contacts
+{
+    $mq_menu: 480px !default;
+    $cl_base: #3fa9f5 !default;
+    $cl_bg: white !default;
+    --cl: var(--cl-btn_contacts, grey);
+    --cl-bg: var(--cl-bg_btn_contacts, white);
+
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    font-size: .8rem;
+    cursor: pointer;
+    @extend %transit;
+
+    @include mq-w($mq_menu)
+    {
+        min-width: 6.2em;
+        padding: .6rem 1rem;
+        color: var(--cl);
+        border: 1px solid var(--cl);
+
+        &:hover
+        {
+            background-color: var(--cl);
+            color: var(--cl-bg);
+        }
+    }
+
+    &__txt
+    {
+        display: none;
+
+        &:after
+        {
+            content: attr(title);
+        }
+
+        @include mq-w($mq_menu)
+        {
+            display: block;
+        }
+    }
+
+    &__ico
+    {
+        @include mq-w($mq_menu)
+        {
+            display: none;
+        }
+    }
+}

@@ -1,33 +1,41 @@
 //- < modules.html
-    > _logo
+    > ../_elements/logo/_logo
+    > ../_elements/btn_contacts/_btn_contacts
     > _contactbtn
     > _menutop
-
 include ../../../pug/_if
 include ../../../pug/_foreach
+- var classparent = 'parent'
+
+.block-bl
+    .block.wrapper.pd_block
+        h2.block__head .text_fluid
+        p.text_fluid Обсудим проблему пикселей и её решение — единицу измерения Rem, которую можно и нужно использовать буквально для всех свойств и даже для определения диапазонов медиазапросов. Разберём, как реализовать адаптивный размер шрифта через CSS-функцию clamp и единицы измерения rem + vw, обернём всё в удобный Sass-миксин fluid-text. Создадим функцию преобразования значения из пикселей в Rem через Sass-функцию.
 
 //- Logo
 .block-bl
     .block.wrapper.pd_block
-
-        include ../elements/_logo
+        h2.block__head Logo
+        | {include "file:vse200base/modules/_elements/logo/logox.html"
+        | el_logo_classparent='parent'
+        | }
 
 //- Contact button
 .block-bl
     .block.wrapper.pd_block
-
-        include _contactbtn
+        h2.block__head _elements/btn_contacts/_btn_contacts
+        include ../_elements/btn_contacts/_btn_contacts
 
 //- Button Gamburger
 .block-bl
     .block.wrapper.pd_block
-
+        h2.block__head .gamburger
         div.gamburger.gamburger_js
 
 //- Navigation
 .block-bl
     .block.wrapper.pd_block
-
+        h2.block__head .navlist
         ul.navlist.navlist-lt
             li: a(href="") База знаний
             li.active: span Портфолио
@@ -38,64 +46,65 @@ include ../../../pug/_foreach
 //- Navigation Sub
 .block-bl
     .block.wrapper.pd_block
-
+        h2.block__head _navlist-sub
         include _navlist-sub
 
 //- Navigation + Navigation Sub
 .block-bl
     .block.wrapper.pd_block
+        h2.block__head .navlist + _navlist-sub
         include _navlist
 
 //- Menu = Button Gamburger + Navigation + Navigation Sub
 .block-bl.pd_tb_block
+    .block.wrapper.pd_block
+        h2.block__head .gamburger + .navlist + _navlist-sub
     .menutop__wrap.wrapper
-
         include _menutop
 
 //- Company = Menu + Contact button
 .block-bl.pd_tb_block
-    .company__wrap.wrapper
-        .company--revers
-            div.company
-                .company-lt
+    .block.wrapper.pd_block
+        h2.block__head .company.company--revers / .gamburger + _btn_contacts + .navlist + _navlist-sub
+    .company.company--revers.wrapper
+        .company-lt
+            div
+                .company__btn_contacts
+                    include ../_elements/btn_contacts/_btn_contacts
 
-                    div
-                        .company__contactbtn
-                            include _contactbtn
-
-                    div
-                        include _menutop
+            div
+                include _menutop
 
 //- Company = Logo + Menu
-.block-bl.pd_tb_block
-    .company__wrap.wrapper
-        div.company
-            .company-lt
-
-                div
-                    .company__logo
-                        include ../elements/_logo
-
-                div
-                    include _menutop
-
-//- Company = Logo + Menu + Contact button
-.block-bl.pd_tb_block
+.block-bl.pd_block
+    .block.wrapper.pd_block
+        h2.block__head .company / .gamburger + _logo + .navlist + _navlist-sub
     .company.wrapper
-        //-div.company
         .company-lt
 
             div
-                .company__logo
-                    include ../elements/_logo
+                - var classparent = 'company'
+                include ../_elements/logo/_logo
+
+            div
+                include _menutop
+
+//- Company = Logo + Menu + Contact button
+.block-bl.pd_tb_block
+    .block.wrapper.pd_block
+        h2.block__head .company / .gamburger + _logo + _btn_contacts + .navlist + _navlist-sub
+    .company.wrapper
+        .company-lt
+
+            div
+                - var classparent = 'company'
+                include ../_elements/logo/_logo
 
             div
                 .company__menu-lt
-
                     div
-                        .company__contactbtn
-                            include _contactbtn
-
+                        .company__btn_contacts
+                            include ../_elements/btn_contacts/_btn_contacts
                     div
                         include _menutop
 

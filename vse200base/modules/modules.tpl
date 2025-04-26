@@ -12,3 +12,10 @@
     'jsSources'     =>
         $template ~ 'modules.js'
 ]}
+
+{set $module = $.post.module}
+{set $modules = [
+    'menutop','footer','bannerhead','sitesections'
+]}
+{*Активируется при добавлении Модуля*}
+{$modules | cache_set : 'modules' : 'vse200base'}

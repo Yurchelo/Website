@@ -1,0 +1,50 @@
+.logo
+{
+    $mq_menu: 480px !default;
+    $smart: 544px !default;
+    --cl: var(--cl_logo, grey);
+
+    display: inline-block;
+
+    &__link
+    {
+        text-transform: uppercase;
+        font-size: max(1.2rem, min(2vw, 1.4rem));
+        color: currentColor;
+        @extend %text-overflow;
+
+        > *
+        {
+            @extend %transit;
+
+            *:hover > &
+            {
+                @include transform(
+                    scale(.9)
+                );
+            }
+        }
+
+        &_vse
+        {
+            display: inline-block;
+
+            @include mq-w($mq_menu)
+            {
+                color: var(--cl);
+            }
+        }
+
+        small
+        {
+            @extend %hidden;
+            display: inline-block;
+            text-transform: none;
+
+            @include mq-w($smart)
+            {
+                @include visible();
+            }
+        }
+    }
+}

@@ -18,12 +18,16 @@ html {
     line-height: 1;
     background: $cl-bg;
     color: $cl_light;
-    font-size: calc(14px + 0.2vw);
+    //font-size: max(14px, min(0.85rem + 0.2vw, 18px));
+    //font-size: calc(14px + 0.2vw);
 
-    @include mq-w(1920px)
+    /*@include mq-w(1920px)
     {
         font-size: 18px;
-    }
+    }*/
+
+    //font-size: clamp(16px, 1.1vw, 18px);
+    //font-size: max(15px, min(1.1vw, 18px));
 
     &.noscroll_js
     {
@@ -34,6 +38,7 @@ html {
 body
 {
     height: inherit;
+
 }
 
 .containerv

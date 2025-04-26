@@ -79,7 +79,7 @@ body
     }
 }
 
-%sub_activehover
+%activehover_navlist-sub
 {
     color: $cl_hover;
     left: 1rem;
@@ -260,13 +260,13 @@ body
 
                 &:not(span):hover
                 {
-                    @extend %sub_activehover;
+                    @extend %activehover_navlist-sub;
                 }
             }
 
             &.active > *
             {
-                @extend %sub_activehover;
+                @extend %activehover_navlist-sub;
             }
         }
     }

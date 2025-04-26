@@ -9,6 +9,7 @@
     --cl_bg_global: hsl(0, 0%, 100%);
     --cl_global: hsl(0, 0%, 20%);
     --cl_base_global: hsl(205, 100%, 60%);
+    --cl_logo: hsl(194, 100%, 50%);
 }
 @include mq-w($full) {
     :root {
@@ -96,6 +97,15 @@ p
     {
         background-color: $cl-fon-gr;
     }
+
+    @include rhythm-margin(.8rem);
+
+    &__head
+    {
+        font-size: 0.7rem;
+        line-height: 1.4;
+        color: #0A246A;
+    }
 }
 
 .content
@@ -157,5 +167,7 @@ p
     font-family: $font_redhat;
     line-height: 1.4;
 }
+
+
 
 //************_Form_*************//

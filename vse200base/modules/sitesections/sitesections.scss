@@ -142,10 +142,155 @@ $linear-gradient: linear-gradient(280deg, rgb(4, 182, 241) 0%, rgb(0, 44, 174) 6
             background-color: $cl_bg;
         }
     }
+
+    &__btn
+    {
+        position: absolute;
+        left: 0;
+        bottom: -10%;
+        @include transform(translate(0, 50%));
+        z-index: 9;
+        width: 100%;
+        @extend %transit;
+        @extend %hidden;
+
+        *:hover > &
+        {
+            bottom: 0;
+            @extend %visible;
+        }
+
+        > [class^=btn]
+        {
+            @include mr_auto();
+        }
+    }
 }
 
-/*
-.sitesection
+.fl_rigth
 {
+    position: relative;
+
+    &:after
+    {
+        content: '\f121';
+        font-size: 1rem;
+        color: currentColor;
+    }
+}
+
+.icorigth
+{
+    $cl_ico: white !default;
+    $cl_bg_ico: #00c3ff !default;
+
+    display: inline-block;
+    @include width-height(2.4rem);
+    line-height: 2.4rem;
+    background-color: $cl_bg_ico;
+    border-radius: 50%;
     text-align: center;
-}*/
+    color: $cl_ico;
+}
+
+.btn_action
+{
+    $cl: grey;
+    $cl_shadow: hsl(13, 0%, 55%);
+    $shadow: '6px 6px 14px 0';
+
+    position: relative;
+    overflow: hidden;
+    display: block;
+    width: fit-content;
+    padding: 1rem 1.2rem;
+    background-color: white;
+    border-radius: 25px;
+    font-family: $font_redhat;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: $cl;
+    box-shadow: #{$shadow} transparentize($cl_shadow, 0.7);
+    @extend %transit;
+
+    &:hover
+    {
+        box-shadow: #{$shadow} transparentize($cl_shadow, 1);
+    }
+
+    &:after
+    {
+        @extend %absolute_content_100;
+        border-radius: 25px;
+        background-color: $cl;
+        opacity: .3;
+
+        left: -100%;
+        @extend %transit;
+
+        *:has([class^=ico]) > &
+        {
+            background-color: $cl_accent;
+        }
+
+        *:hover > &
+        {
+            left: 0;
+            @extend %hidden;
+        }
+    }
+
+    &:has([class^=ico])
+    {
+        color: $cl_accent;
+        padding: 0.3rem 0.4rem 0.3rem 1.2rem;
+    }
+
+    > [class^=ico]
+    {
+        display: inline-block;
+        margin-left: 0.8rem;
+        background-color: $cl_accent;
+    }
+}
+
+.sitesection-group
+{
+    &-lt
+    {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 1.6rem;
+
+        > *
+        {
+            flex-basis: 14rem;
+            flex-grow: 1;
+            width: auto;
+            aspect-ratio: auto;
+        }
+    }
+}
+
+.sitesections
+{
+    //width: 100%;
+
+    &-lt
+    {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 1.6rem;
+
+        > *
+        {
+            flex-basis: 14rem;
+            flex-grow: 1;
+            width: auto;
+            aspect-ratio: auto;
+        }
+    }
+}

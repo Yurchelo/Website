@@ -6,7 +6,7 @@ include ../../../pug/_if
             .footer-lt
                 div
                     div.footer__logo
-                        include ../menutop/_logo
+                        include ../_elements/logo/_logo
                 div
                     div.content.footer__content
                         p Если судьба будущего проекта зависит от нахождения его в поисковых системах, предлагаем Вам сразу позаботиться о видимости в них. От правильно разработанной стратегии зависит структура и наполнение сайта. Поэтому наш совет — занимайтесь продвижением до создания сайта.
@@ -15,5 +15,5 @@ include ../../../pug/_if
         .footer-info.wrapper.pd_block
             p © Copyright 2008 - 2025
                 +if("$access")
-                    | {$_modx->getInfo('queries')} q {$_modx->getInfo('totalTime')} {$_modx->getInfo('source')}
+                    |  ({$_modx->getInfo('queries')} q {$_modx->getInfo('totalTime')} {$_modx->getInfo('source')})
 

@@ -21,9 +21,7 @@ switch ($modx->event->name)
 			'modules'
 		];
 
-		$modules = [
-			'menutop'
-		];
+		$modules = [];
 
 		$dir = array(
 			xPDO::OPT_CACHE_KEY => 'vse200base',
@@ -38,6 +36,8 @@ switch ($modx->event->name)
 
 		// Ищем ресурс по полученному Ури
 		if (!$id = $modx->findResource($segments[0])) break;
+
+		//$modx->log(modX::LOG_LEVEL_ERROR, '[routing]: ' . print_r($id, 1));
 
 		// Отправляем переменную
 		$_POST['module'] = $segments[1];

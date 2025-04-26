@@ -13,16 +13,7 @@
     @extend %pd_tb_block;
 }
 //************_Inline_*************//
-%txt_nav
-{
-    $font_nav: sans-serif !default;
-    $cl_font_nav: $cl_light !default;
 
-    font-family: $font_nav;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: $cl_font_nav;
-}
 
 
 //************_Form_*************//

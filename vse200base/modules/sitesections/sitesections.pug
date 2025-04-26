@@ -38,3 +38,38 @@
                     span.fl_startup
                 h3.head_box Awesome Results
                 p.txt_box We have seen great successes with everyone companies.
+
+//- btn_action
+.block-bl
+    .block.wrapper.pd_block
+        button.btn_action Learn More
+
+//- icorigth
+.block-bl
+    .block.wrapper.pd_block
+        .icorigth
+            span.fl_rigth
+
+//- btn_action + icorigth
+.block-bl
+    .block.wrapper.pd_block
+        include _btn_action
+
+mixin sitesection()
+    .sitesection
+        .sitesection__bg
+        .sitesection__content
+            .icosection.sitesection__icosection
+                span.fl_startup
+            h3.head_box Awesome Results
+            p.txt_box We have seen great successes with everyone companies.
+        .sitesection__btn
+            include _btn_action
+
+//- sitesection + btn_action
+.block-bl
+    .block.wrapper.pd_block
+        .sitesections.sitesections-lt
+            +sitesection
+            +sitesection
+            +sitesection

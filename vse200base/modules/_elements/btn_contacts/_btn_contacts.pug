@@ -3,7 +3,7 @@
 
 //-div.contactbtn
 button.btn_contacts(class=classparent ? classparent + "__btn_contacts" : '')
-    span(title='Контакты' data-title='X').btn_contacts__txt
+    span(title=title ? title : "Контакты" data-title='X').btn_contacts__txt
 
     //- Иконка в шапке сайта
     span.ico_contacts.btn_contacts__ico

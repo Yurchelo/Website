@@ -1,0 +1,27 @@
+//- < base.html
+    > _logo
+    > _contactbtn
+include ../../../pug/_if
+include ../../../pug/_foreach
+
+.company-bl
+    .company.company--revers.wrapper
+        .company-lt
+            div
+                .company__menu-lt
+                    div
+                    div
+                        //- > _menutop
+                        .menutop
+                            .menutop__gamburger
+                                div.gamburger.gamburger_js
+
+                            nav.menutop__nav
+                                //- > _navlist
+                                ul.navlist.navlist-lt
+                                    +foreach("$modules","$item",false,false)
+                                        | {set $active = ''}
+                                        +if("$module == $item")
+                                            | {set $active = 'active'}
+                                        li(class="{$active}"): a(href="/modules/{$item}") {$item}
+            div
