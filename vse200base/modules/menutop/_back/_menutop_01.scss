@@ -1,10 +1,10 @@
 @charset "UTF-8";
-@import "../../../css/_mixin";
-@import "../../../css/_var";
-@import "../../../css/_ext";
+@import "../../../../css/mixin";
+@import "../../../../css/var";
+@import "../../../../css/ext";
 //------------------------------
-@import "../../base/_var";
-@import "../../base/_ext";
+@import "../../../base/var";
+@import "../../../base/ext";
 
 $mq_menu: $tab !default;
 $cl: hsl(0, 0%, 20%) !default;
@@ -16,8 +16,15 @@ $pd_tb: 0.7rem;
 $font_nav: sans-serif !default;
 $font-ico: 'Flaticon' !default;
 
-@import "../_elements/logo/_logo";
-@import "../_elements/btn_contacts/_btn_contacts";
+body
+{
+    --cl_block: var(--cl_global, hsl(0, 0%, 20%));
+    --cl_bg_block: var(--cl_bg_global, white);
+    --cl_base_block: var(--cl_base_global, hsl(205, 100%, 60%));
+}
+
+@import "../../_elements/logo/logo";
+@import "../../_elements/btn_contacts/btn_contacts";
 
 %activehover_navlist-sub
 {
@@ -29,9 +36,11 @@ $font-ico: 'Flaticon' !default;
         @extend %visible;
     }
 }
-%txt-nav_navlist
+%txt_nav
 {
-    font-family: var(--f);
+    $font_nav: sans-serif !default;
+
+    font-family: $font_nav;
     font-weight: 600;
     font-size: 0.9rem;
     color: var(--cl);
@@ -39,20 +48,20 @@ $font-ico: 'Flaticon' !default;
 .navlist
 {
     $mq_menu: 480px !default;
+    $cl_hover: black !default;
+    $cl_bg: white !default;
     $cl_ico: lighten(black, 60%) !default;
-    --pd-tb-el: var(--pd-tb-el_navlist, 0.7rem);
-    --pd-lr-el: var(--pd-lr-el_navlist, max(0.8rem, min(0.4rem + 1.4vw, 1.6rem)));
-    --f: var(--f_navlist, sans-serif);
-    --f-ico: var(--f-ico_navlist, 'Flaticon');
+    $font_nav: sans-serif !default;
+    $font-ico: 'Flaticon' !default;
+    $pd_tb: 0.8rem !default;
     --cl: var(--cl-navlist, black);
     --cl-hover: var(--cl-hover_navlist, grey);
     --cl-bg: var(--cl-bg_navlist, white);
     --cl-ico: var(--cl-ico_navlist, #{$cl_ico});
+    --pd-tb-el: var(--pd-tb-el_navlist, #{$pd_tb});
 
-    --cl_navlist-sub: var(--cl_navlist-sub_1, var(--cl));
-    --cl-bg_navlist-sub: var(--cl-bg_navlist-sub_1, var(--cl-bg));
-    --cl-hover_navlist-sub: var(--cl-hover_navlist-sub_1, var(--cl-hover));
-    --f_navlist-sub: var(--f_navlist-sub_1, var(--f));
+    --cl-bg_navlist-sub: var(--cl-bg_navlist, var(--cl-bg));
+    --cl-hover_navlist-sub: var(--cl-hover_navlist, var(--cl-hover));
 
     position: relative;
     background-color: var(--cl-bg);
@@ -80,7 +89,7 @@ $font-ico: 'Flaticon' !default;
             {
                 &:after
                 {
-                    font-family: var(--f-ico);
+                    font-family: $font-ico;
                     content:'\f10d';
 
                     display: inline-block;
@@ -95,8 +104,8 @@ $font-ico: 'Flaticon' !default;
         > *:not(.navlist__sub)
         {
             display: block;
-            padding: var(--pd-tb-el) var(--pd-lr-el);
-            @extend %txt-nav_navlist;
+            padding: var(--pd-tb-el) 1.4rem;
+            @extend %txt_nav;
             @extend %text-overflow;
 
             &:not(span):hover
@@ -169,10 +178,11 @@ $font-ico: 'Flaticon' !default;
 
     &-sub
     {
-        --cl: var(--cl_navlist-sub, black);
+        $cl_bg: white !default;
+        $cl_hover: black !default;
+        $font_nav: sans-serif !default;
         --cl-bg: var(--cl-bg_navlist-sub, white);
         --cl-hover: var(--cl-hover_navlist-sub, grey);
-        --f: var(--f_navlist-sub, sans-serif);
 
         width: 16rem;
         max-width: 100%;
@@ -194,7 +204,7 @@ $font-ico: 'Flaticon' !default;
                 left: 0;
 
                 line-height: 1.4;
-                @extend %txt-nav_navlist;
+                @extend %txt_nav;
 
                 @extend %transit;
 
@@ -237,7 +247,7 @@ $font-ico: 'Flaticon' !default;
     );
 }
 
-%box_animate
+%company_box_animate
 {
     top: 100%;
     height: auto;
@@ -263,11 +273,11 @@ $font-ico: 'Flaticon' !default;
         );
     }
 }
-%wrap_company
+%company_wrap
 {
     position: relative;
     z-index: 999;
-    background-color: var(--cl-bg);
+    background-color: var(--cl_bg_company, $cl_bg);
 
     &.company--base
     {
@@ -277,32 +287,22 @@ $font-ico: 'Flaticon' !default;
     @include mq-w($mq_menu, max)
     {
         @include pd_tb(0);
-        @include pd_lr(var(--pd-lr-el));
+        @include pd_lr($pd_lr_block, 0, true);
     }
 }
+
 .menutop
 {
+    $mq_menu: 480px !default;
+    $cl_bg: white !default;
+    $pd_tb: 0.8rem !default;
+    --cl-bg: var(--cl-bg_menutop, white);
+    --pd-tb-el: var(--pd-tb-el_menutop, #{$pd_tb});
+
     &__wrap
     {
-        --pd-lr-el: var(--pd-lr-el_menutop, max(0.8rem, min(0.4rem + 1.4vw, 1.6rem)));
-        --cl-bg: var(--cl-bg_menutop, white);
-
-        @extend %wrap_company;
+        @extend %company_wrap;
     }
-
-    $mq_menu: 480px !default;
-    $cl_ico: lighten(black, 60%) !default;
-    --pd-tb-el: var(--pd-tb-el_menutop, 0.7rem);
-    --cl-bg: var(--cl-bg_menutop, white);
-
-    --pd-tb-el_navlist: var(--pd-tb-el_navlist_1, var(--pd-tb-el));
-    --pd-lr-el_navlist: var(--pd-lr-el_navlist_1, var(--pd-lr-el));
-    --f_navlist: var(--f_navlist_1, sans-serif);
-    --f-ico_navlist: var(--f-ico_navlist_1, 'Flaticon');
-    --cl-navlist: var(--cl-navlist_1, black);
-    --cl-hover_navlist: var(--cl-hover_navlist_1, grey);
-    --cl-bg_navlist: var(--cl-bg_navlist_1, var(--cl-bg));
-    --cl-ico_navlist: var(--cl-ico_navlist_1, #{$cl_ico});
 
     @include pd_tb(var(--pd-tb-el));
 
@@ -331,7 +331,7 @@ $font-ico: 'Flaticon' !default;
         width: 100%;
         padding-bottom: 1rem;
         background-color: var(--cl-bg);
-        @extend %box_animate;
+        @extend %company_box_animate;
 
         @include mq-w($mq_menu)
         {
@@ -350,11 +350,25 @@ $font-ico: 'Flaticon' !default;
 .company
 {
     $mq_menu: 480px !default;
+    $cl_bg: white !default;
+    $cl: lighten(black, 20%) !default;
+    $cl_base: #3fa9f5 !default;
+    $pd_lr_block: var(--pd_lr_block_rem) + ' + ' + var(--pd_lr_block_vw) !default;
+    $pd_tb: 0.8rem !default;
 
     &-bl
     {
-        --cl-bg: var(--cl-bg_company, white);
-        background-color: var(--cl-bg);
+        --cl_company: var(--cl_bg_block);
+        --cl_bg_company: var(--cl_base_block);
+
+        @include mq-w($mq_menu)
+        {
+            --cl_company: var(--cl_block);
+            --cl_bg_company: var(--cl_bg_block);
+        }
+
+        background-color: var(--cl_bg_company);
+        color: var(--cl_company);
 
         &.scroll_js
         {
@@ -378,22 +392,14 @@ $font-ico: 'Flaticon' !default;
         }
     }
 
-    --pd-tb-el: var(--pd-tb-el_company, 0.7rem);
-    --pd-lr-el: var(--pd-lr-el_company, max(0.8rem, min(0.4rem + 1.4vw, 1.6rem)));
-    --cl: var(--cl_company, black);
-    --cl-bg: var(--cl-bg_company, white);
-
-    --pd-tb-el_menutop: var(--pd-tb-el_menutop_1, var(--pd-tb-el));
-    --pd-lr-el_menutop: var(--pd-lr-el_menutop_1, var(--pd-lr-el));
-
-    @extend %wrap_company;
-    color: var(--cl);
+    @extend %company_wrap;
 
     &-lt
     {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        @include calc(column-gap, $pd_lr_block);
 
         > *
         {
@@ -411,14 +417,14 @@ $font-ico: 'Flaticon' !default;
 
             @include mq-w($mq_menu)
             {
-                &.company--revers:nth-child(1)
+                .company--revers &:nth-child(1)
                 {
                     order: 1;
                     text-align: right;
                     margin-left: 0;
                 }
 
-                &.company--revers:nth-child(2)
+                .company--revers &:nth-child(2)
                 {
                     text-align: left;
                     margin-left: auto;
@@ -428,10 +434,10 @@ $font-ico: 'Flaticon' !default;
     }
 
     &__logo,
-    &__btn_contacts
+    &__contactbtn
     {
-        @include pd_lr(var(--pd-lr-el));
-        @include pd_tb(var(--pd-tb-el));
+        @include pd_lr($pd_lr_block, 0, true);
+        @include pd_tb($pd_tb);
 
         @include mq-w($mq_menu, max)
         {
@@ -449,12 +455,7 @@ $font-ico: 'Flaticon' !default;
             align-items: center;
             flex-wrap: wrap;
             max-width: 100vw;
-            column-gap: var(--pd-lr-el);
-
-            @include mq-w($mq_menu)
-            {
-                column-gap: 0;
-            }
+            @include calc(column-gap, $pd_lr_block);
 
             > *
             {
@@ -466,12 +467,8 @@ $font-ico: 'Flaticon' !default;
                     }
                 }
             }
-
-            .company-bl--loc &
-            {
-                column-gap: 0;
-            }
         }
     }
 }
+
 

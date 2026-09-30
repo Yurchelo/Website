@@ -9,8 +9,10 @@
     --cl_bg_global: hsl(0, 0%, 100%);
     --cl_global: hsl(0, 0%, 20%);
     --cl_base_global: hsl(205, 100%, 60%);
-    --cl_logo: hsl(194, 100%, 50%);
+    //--cl_logo: hsl(194, 100%, 50%);
+    //--cl_navlist-sub1: green;
 }
+
 @include mq-w($full) {
     :root {
         --pd_lr_block_rem: 1.6rem;
@@ -114,18 +116,7 @@ p
     font-size: 0.9rem;
     line-height: 1.6;
 
-    > *
-    {
-        &:not(:last-child)
-        {
-            margin-bottom: 0.8rem;
-        }
-    }
-/*
-    &--invert
-    {
-        color: ;
-    }*/
+    @include rhythm-margin(0.8rem);
 }
 //************_Inline_*************//
 
@@ -134,7 +125,7 @@ p
     &_h1
     {
         font-family: $font-sans;
-        font-size: calc(var(--font_h1_rem) + var(--font_h1_vw));
+        font-size: max(22px, min(0.8rem + 2.4vw, 3.2rem));
         font-weight: 600;
         line-height: 1.2;
 
@@ -144,10 +135,11 @@ p
         }
     }
 
-    &_slogan_h1
+    &_slogan-h1
     {
         font-family: $font-sans;
-        font-size: calc(.7rem + .12vw);
+        //-font-size: calc(.7rem + .12vw);
+        font-size: max(9px, min(9px + .22vw, 1rem));
         font-weight: 400;
         text-transform: uppercase;
         line-height: 1.6;
@@ -162,12 +154,22 @@ p
     }
 }
 
-.txt_box
+.txt
 {
-    font-family: $font_redhat;
-    line-height: 1.4;
+    &_box
+    {
+        font-family: $font_redhat;
+        line-height: 1.4;
+    }
+
+    &_fluid
+    {
+        line-height: 1.44;
+        //@include fluid-text(18, 14);
+        font-size: max(14px, min(0.85rem + 0.2vw, 18px));
+        //--ca: calc(10 * (1vw + 1vh) / 2);
+        //font-size: max(14px, min(var(--ca), 18px));
+    }
 }
-
-
 
 //************_Form_*************//

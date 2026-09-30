@@ -1,9 +1,7 @@
 .btn_contacts
 {
     $mq_menu: 480px !default;
-    $cl_base: #3fa9f5 !default;
-    $cl_bg: white !default;
-    --cl: var(--cl-btn_contacts, grey);
+    --cl: var(--cl_btn_contacts, grey);
     --cl-bg: var(--cl-bg_btn_contacts, white);
 
     position: relative;
@@ -15,8 +13,8 @@
 
     @include mq-w($mq_menu)
     {
-        min-width: 6.2em;
-        padding: .6rem 1rem;
+        min-width: 6.2rem;
+        padding: 0.4rem 1rem 0.6rem;
         color: var(--cl);
         border: 1px solid var(--cl);
 

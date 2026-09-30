@@ -9,11 +9,13 @@ $cl-fon-gr: #EEEEEE;
 $cl-attention: red;
 $cl_error: $cl-attention;
 
-$cl_conpany: #00c3ff;
+$cl_conpany: hsla(194 100% 50% / 0.99);
 $cl_btn: #0160e7;
 $cl_accent: hsl(13, 99%, 55%);
 $cl_base: $cl_conpany;
 $cl_hover: $cl_conpany;
+//hsla(215 100% 60% / 0.3) тень иконки icosection
+//hsla(219 46% 30% / 0.15) тень sitesection
 
 $pd_tb_block: var(--pd_tb_block_rem) + ' + ' + var(--pd_tb_block_vw) !global;
 $pd_lr_block: var(--pd_lr_block_rem) + ' + ' + var(--pd_lr_block_vw) !global;

@@ -6,3 +6,8 @@
 @import "../base/_var";
 @import "../base/_ext";
 
+#header-h1
+{
+    --cl-bg_header-h1: #{$linear-gradient};
+    --cl-accent_header-h1: #{$cl_base};
+}

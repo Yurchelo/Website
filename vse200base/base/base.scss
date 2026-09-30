@@ -38,7 +38,6 @@ html {
 body
 {
     height: inherit;
-
 }
 
 .containerv
@@ -61,3 +60,25 @@ body
     }
 }
 
+#company
+{
+    --cl_company: #{$cl-bg};
+    --cl-bg_company: #{$cl_base};
+    --cl-hover_navlist_1: #{$cl_base};
+
+    @include mq-w($mq_menu)
+    {
+        --cl_company: #{$cl_light};
+        --cl-bg_company: #{$cl-bg};
+        --cl_logo: #{$cl_base};
+        --cl_btn_contacts: #{$cl_base};
+        --cl-bg_btn_contacts: #{$cl-bg};
+    }
+}
+
+#footer
+{
+    --cl-logo_footer: #{$cl_base};
+    --cl-info_footer: #{$cl_base};
+    --cl-bg_footer: #{$linear-gradient};
+}

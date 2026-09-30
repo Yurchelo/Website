@@ -31,17 +31,18 @@ $linear-gradient: linear-gradient(280deg, rgb(4, 182, 241) 0%, rgb(0, 44, 174) 6
 
 .icosection
 {
-    $cl_ico: white !default;
-    $cl_bg_ico: #00c3ff !default;
+    --cl: var(--cl_icosection, white);
+    --cl-bg: var(--cl-bg_icosection, gray);
+    $cl-sh_icosection: hsla(194 0% 0% / 0.3) !default;
 
     display: inline-block;
     @include width-height(4rem);
     line-height: 4rem;
-    background-color: $cl_bg_ico;
+    background-color: var(--cl-bg);
     border-radius: 50%;
     text-align: center;
-    box-shadow: 6px 6px 14px 0px hsla(215, 100%, 60%, 0.3);
-    color: $cl_ico;
+    box-shadow: 6px 6px 14px 0 $cl-sh_icosection;
+    color: var(--cl);
 }
 
 .sitesection
@@ -52,13 +53,16 @@ $linear-gradient: linear-gradient(280deg, rgb(4, 182, 241) 0%, rgb(0, 44, 174) 6
     $dir_i: 'i/' !default;
     $linear-gradient: linear-gradient(280deg, rgb(4, 182, 241) 0%, rgb(0, 44, 174) 62%) !default;
 
+    --cl-bg: var(--cl-bg_sitesection, white);
+    $cl-sh_sitesection: hsla(194 0% 0% / .15) !default;
+
     position: relative;
     padding: 3rem 1.6rem;
     width: 22rem;
     max-width: 100%;
     aspect-ratio: 5 / 4;
-    background-color: $cl_bg;
-    box-shadow: rgba(42, 67, 113, 0.15) 8px 8px 30px 0;
+    background-color: var(--cl-bg);
+    box-shadow: $cl-sh_sitesection 8px 8px 30px 0;
     border-radius: 1rem;
     text-align: center;
 
@@ -76,14 +80,14 @@ $linear-gradient: linear-gradient(280deg, rgb(4, 182, 241) 0%, rgb(0, 44, 174) 6
     {
         top: 0;
         left: 0;
-        background: url($dir_i + 'topleft.png') top left no-repeat transparent;
+        background: url($dir_i + 'topleft.svg') top left no-repeat transparent;
     }
 
     &:after
     {
         bottom: 0;
         right: 0;
-        background: url($dir_i + 'bottomricht.png') bottom right no-repeat transparent;
+        background: url($dir_i + 'bottomricht.svg') bottom right no-repeat transparent;
     }
 
     &--bottom
@@ -92,14 +96,14 @@ $linear-gradient: linear-gradient(280deg, rgb(4, 182, 241) 0%, rgb(0, 44, 174) 6
         {
             left: auto;
             right: 0;
-            background: url($dir_i + 'topricht.png') top right no-repeat transparent;
+            background: url($dir_i + 'topricht.svg') top right no-repeat transparent;
         }
 
         &:after
         {
             right: auto;
             left: 0;
-            background: url($dir_i + 'bottomleft.png') bottom left no-repeat transparent;
+            background: url($dir_i + 'bottomleft.svg') bottom left no-repeat transparent;
         }
     }
 

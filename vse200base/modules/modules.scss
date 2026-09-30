@@ -6,4 +6,7 @@
 @import "../base/_var";
 @import "../base/_ext";
 
-
+#menutop
+{
+    --cl-hover_navlist_1: #{$cl_base};
+}

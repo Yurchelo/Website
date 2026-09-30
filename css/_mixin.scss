@@ -532,6 +532,25 @@ $h_item: 2px
     }
 }
 
+@mixin fluid-text($max: 48, $min: 16) {
+    $maxViewportWidth: 1920;
+    $minViewportWidth: 180;
+
+    $maxSize: $max / 16;
+    $minSize: $min / 16;
+    $maxWidth: $maxViewportWidth / 16;
+    $minWidth: $minViewportWidth / 16;
+
+    $slope: ($maxSize - $minSize) / ($maxWidth - $minWidth);
+    $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+    font-size: max(
+        #{$minSize * 1rem},
+        min(#{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+        #{$maxSize * 1rem})
+    );
+}
+
 // единица сетки экрана
 @function precent-vw($n) { @return $n * 100vw; }
 @function rem($size) {

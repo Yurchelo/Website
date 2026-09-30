@@ -6,23 +6,21 @@
 @import "../../base/_var";
 @import "../../base/_ext";
 
-$cl_footer: white !default;
-$cl_base: #00c3ff !default;
-$linear-gradient: linear-gradient(280deg, rgb(4, 182, 241) 0%, rgb(0, 44, 174) 62%) !default;
-
 .footer
 {
-    $cl_footer: white !default;
-    $cl_base: #00c3ff !default;
+    --cl: var(--cl_footer, white);
+    --cl-logo: var(--cl-logo_footer, black);
 
     &-wrap
     {
-        background-image: $linear-gradient;
+        --cl-bg: var(--cl-bg_footer, linear-gradient(280deg, black 0%, gray 62%));
+
+        background-image: var(--cl-bg);
     }
 
     @include pd_tb('1.6rem + 1vw', 0, true);
     width: fit-content;
-    color: $cl_footer;
+    color: var(--cl);
 
     &-lt
     {
@@ -35,7 +33,7 @@ $linear-gradient: linear-gradient(280deg, rgb(4, 182, 241) 0%, rgb(0, 44, 174) 6
     {
         .logo__link_vse
         {
-            color: $cl_base;
+            color: var(--cl-logo);
         }
     }
 
@@ -46,6 +44,8 @@ $linear-gradient: linear-gradient(280deg, rgb(4, 182, 241) 0%, rgb(0, 44, 174) 6
 
     &-info
     {
+        --cl-info: var(--cl-info_footer, black);
+
         &-bl
         {
             border-top: 1px solid rgba(255,255,255,.1);
@@ -53,7 +53,7 @@ $linear-gradient: linear-gradient(280deg, rgb(4, 182, 241) 0%, rgb(0, 44, 174) 6
 
         font-size: 0.8rem;
         text-align: center;
-        color: $cl_base;
+        color: var(--cl-info);
     }
 }
 

@@ -6,20 +6,20 @@
 @import "../../base/_var";
 @import "../../base/_ext";
 
-$cl_header-h1: white !default;
-$cl_base: #00c3ff !default;
-$cl_slogan: #c4f1ff !default;
-$linear-gradient: linear-gradient(280deg, rgb(4, 182, 241) 0%, rgb(0, 44, 174) 62%) !default;
-
 .header-h1
 {
     &-bl
     {
-        background-image: $linear-gradient;
+        --cl-bg: var(--cl-bg_header-h1, linear-gradient(280deg, black 0%, gray 62%));
+
+        background-image: var(--cl-bg);
     }
 
+    --cl: var(--cl_header-h1, white);
+    --cl-accent: var(--cl-accent_header-h1, black);
+
     @include pd_tb('2rem + 1vw', 0, true);
-    color: $cl_header-h1;
+    color: var(--cl);
     text-align: center;
     @include rhythm-margin(1.6rem);
 
@@ -27,13 +27,13 @@ $linear-gradient: linear-gradient(280deg, rgb(4, 182, 241) 0%, rgb(0, 44, 174) 6
     {
         > span
         {
-            color: $cl_base;
+            color: var(--cl-accent);
         }
     }
 
     &__slogan
     {
-        color: $cl_slogan;
+        color: var(--cl);
     }
 
     &__img
